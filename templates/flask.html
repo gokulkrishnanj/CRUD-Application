@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Flask Projrct</title>
+<style>
+body{
+background-color:white;
+}
+h1{
+color:blue;
+}
+h2{
+color:green;
+}
+</style>
+<body>
+<h1>Welcome</h1>
+<p><a href="{{url_for('addname')}}">Add Users</a></p>
+<p><h2>Welcome to flask</h2></p>
+<table>
+<tr>
+<th>id</th>
+<th>NAME</th>
+<th>AGE</th>
+<th>CITY</th>
+<th>edit</th>
+<th>delete</th>
+</tr>
+{%for data in datas: %}
+<tr>
+<td>{{data.id}}</td>
+<td>{{data.NAME}}</td>
+<td>{{data.AGE}}</td>
+<td>{{data.CITY}}</td>
+<td><a href="{{url_for('editname',id=data.id)}}">EDIT</a></td>
+<td><a onclick="return confirm('Are you sure ant to delete..?');"href="{{url_for('deletename',id=data.id)}}">DELETE</a></td>
+</tr>
+{%endfor%}
+</table>
+</body>
+</head>
+</html>
